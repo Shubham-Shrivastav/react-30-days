@@ -1,15 +1,10 @@
 import './App.css';
-import Product from './components/Product';
-
+import Counter from './components/Counter';
 function App() {
   return (
     <div className='App'>
       <header className='App-header'>
-        <Product
-          name={'T-Shirt'}
-          price={2000}
-          description={'Casual printed T-shirt'}
-        />
+        <Counter />
       </header>
     </div>
   );
