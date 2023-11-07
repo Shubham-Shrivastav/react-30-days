@@ -12,10 +12,10 @@ const DataFetcher = () => {
         if (result.status === 'success') {
           setData(result.message)
         } else {
-          console.error('Error fetching data:', result.message)
+          console.log('Error fetching data:', result.message)
         }
       } catch (error) {
-        console.error('Error fetching data:', error)
+        console.log('Error fetching data:', error)
       }
       setLoading(false)
     }
