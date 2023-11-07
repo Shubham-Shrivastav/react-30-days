@@ -1,12 +1,12 @@
 import React from 'react'
 import './App.css'
-import Counter from './components/Counter'
+import DataFetcher from './components/DataFetcher'
 function App () {
   return (
     <>
     <div className='App'>
       <header className='App-header'>
-        <Counter />
+        <DataFetcher />
       </header>
     </div>
     </>
