@@ -5,22 +5,17 @@ const DataFetcher = () => {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    async function fetchData () {
-      try {
-        const response = await fetch('https://dog.ceo/api/breeds/list/all')
-        const result = await response.json()
-        if (result.status === 'success') {
-          setData(result.message)
-        } else {
-          console.log('Error fetching data:', result.message)
-        }
-      } catch (error) {
+    fetch('https://dog.ceo/api/breeds/list/all')
+      .then((response) => response.json())
+      .then((result) => {
+        setData(result.message)
+      })
+      .catch((error) => {
         console.log('Error fetching data:', error)
-      }
-      setLoading(false)
-    }
-
-    fetchData()
+      })
+      .finally(() => {
+        setLoading(false)
+      })
   }, [])
 
   return (
