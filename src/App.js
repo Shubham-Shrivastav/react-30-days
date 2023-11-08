@@ -9,12 +9,14 @@ import Dashboard from './components/Dashboard'
 function App () {
   return (
     <div className='App'>
+            <header className="App-header">
         <Routes>
           <Route path="/" element={<Home />}/>
           <Route path="about" element={<About />}/>
           <Route path="contact" element={<Contact />}/>
           <Route path="dashboard" element={<Dashboard />}/>
         </Routes>
+        </header>
     </div>
   )
 }
