@@ -1,20 +1,30 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import TextField from '@mui/material/TextField';
 
 const TextInput = () => {
-  const [text, setText] = useState('')
-  function handleChange (e) {
-    setText(e.target.value)
-  }
+  const [text, setText] = useState('');
+
+  const handleChange = (e) => {
+    setText(e.target.value);
+  };
+
+  const validateText = () => {
+
+    return text.trim() === '';
+  };
 
   return (
     <div>
-        <label >
-        Name :
-      <input value={text} onChange={handleChange}></input>
-      </label>
-      <p>The name is : {text}</p>
+      <TextField
+        label='Name'
+        value={text}
+        onChange={handleChange}
+        fullWidth
+        error={validateText()}
+        helperText={validateText() ? 'This field is required' : ''}
+      />
     </div>
-  )
-}
+  );
+};
 
-export default TextInput
+export default TextInput;

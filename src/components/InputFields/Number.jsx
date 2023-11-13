@@ -1,29 +1,27 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import TextField from '@mui/material/TextField';
 
 const Number = () => {
-  const [num, setNum] = useState()
-  function handleChange (e) {
-    setNum(e.target.value)
-  }
+  const [num, setNum] = useState('');
+
+  const handleChange = (e) => {
+    setNum(e.target.value);
+  };
 
   return (
     <div>
-      <label>
-        Age :
-        <input
-          type='number'
-          min='17'
-          max='50'
-          value={num}
-          onChange={handleChange}
-        ></input>
-      </label>
+      <TextField
+        type='number'
+        label='Age'
+        value={num}
+        onChange={handleChange}
+        inputProps={{ min: '17', max: '50' }}
+        fullWidth
+      />
       <br />
-      <label>
-        Contact Number :<input type='tel'></input> <br />
-      </label>
+      <TextField type='tel' label='Contact Number' fullWidth />
     </div>
-  )
-}
+  );
+};
 
-export default Number
+export default Number;
