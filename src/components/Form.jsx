@@ -36,13 +36,23 @@ const Form = () => {
     setFormData({ ...formData, gender: value });
   };
 
-  const handleAgreementChange = () => {
-    setFormData({ ...formData, agreement: !formData.agreement });
+  const handleAgreementChange = (e) => {
+    const { checked } = e.target;
+    setFormData({ ...formData, agreement: checked });
+  };
+
+  const isFormFilled = () => {
+    const { text, age, password, gender, agreement } = formData;
+    return text !== '' && age !== '' && password !== '' && gender !== '' && agreement;
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Form submitted!', formData);
+    if (isFormFilled()) {
+      console.log('Form submitted!', formData);
+    } else {
+      console.log('Please fill all the required fields!');
+    }
   };
 
   return (
@@ -55,10 +65,9 @@ const Form = () => {
       <label>
         <input type='checkbox' onChange={handleAgreementChange} />
         Check if you agree for all the T&C
-
         <br />
       </label>
-      <Button variant="contained" color="primary" onClick={handleSubmit}>
+      <Button variant="contained" color="primary" onClick={handleSubmit} disabled={!isFormFilled()}>
         Submit
       </Button>
     </div>

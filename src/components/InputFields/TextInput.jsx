@@ -17,9 +17,11 @@ const TextInput = ({ onChange }) => {
   return (
     <div>
       <TextField
+        autoComplete='off'
         label='Name'
         value={text}
         onChange={handleChange}
+        required
         fullWidth
         error={validateText()}
         helperText={validateText() ? 'This field is required' : ''}

@@ -20,6 +20,7 @@ const Password = ({ onChange }) => {
   return (
     <div>
       <TextField
+        required
         type='password'
         label='Choose Password'
         value={password}
