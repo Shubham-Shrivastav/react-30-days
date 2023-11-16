@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { useState }from 'react';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 
-const Gender = () => {
-  const [gender, setGender] = React.useState('');
+const Gender = ({onChange}) => {
+  const [gender, setGender] = useState('');
 
   const handleChange = (event) => {
-    setGender(event.target.value);
+    const { value } = event.target;
+    setGender(value)
+    onChange(value)
   };
 
   return (

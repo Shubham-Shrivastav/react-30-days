@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
 import TextField from '@mui/material/TextField';
 
-const TextInput = () => {
+const TextInput = ({ onChange }) => {
   const [text, setText] = useState('');
 
   const handleChange = (e) => {
-    setText(e.target.value);
+    const { value } = e.target;
+    setText(value);
+    onChange(value);
   };
 
   const validateText = () => {
-
     return text.trim() === '';
   };
 

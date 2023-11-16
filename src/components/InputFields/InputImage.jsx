@@ -4,11 +4,13 @@ import InputLabel from '@mui/material/InputLabel';
 import InputAdornment from '@mui/material/InputAdornment';
 import IconButton from '@mui/material/IconButton';
 
-const InputImage = () => {
+const InputImage = ({ onChange }) => {
   const [img, setImg] = useState('');
 
   const handleChange = (e) => {
-    setImg(e.target.value);
+    const { value } = e.target;
+    onChange(value)
+    setImg(value)
   };
 
   return (

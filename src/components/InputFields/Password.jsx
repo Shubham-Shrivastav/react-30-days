@@ -1,17 +1,20 @@
 import React, { useState } from 'react';
 import TextField from '@mui/material/TextField';
 
-const Password = () => {
-  const [pass, setPass] = useState('');
+const Password = ({ onChange }) => {
+  const [password, setPassword] = useState('');
 
   const handleChange = (e) => {
-    setPass(e.target.value);
+    const { value } = e.target;
+    onChange(value)
+    setPassword(value)
+
   };
 
   const validatePassword = () => {
     const passwordRegex = /^(?=.*[A-Z])(?=.*[!@#$%^&*])(.{8,})$/;
 
-    return !passwordRegex.test(pass);
+    return !passwordRegex.test(password);
   };
 
   return (
@@ -19,7 +22,7 @@ const Password = () => {
       <TextField
         type='password'
         label='Choose Password'
-        value={pass}
+        value={password}
         onChange={handleChange}
         fullWidth
         error={validatePassword()}
