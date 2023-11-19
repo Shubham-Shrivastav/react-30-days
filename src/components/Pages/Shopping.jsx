@@ -1,4 +1,4 @@
-import { Button, Paper, Stack } from '@mui/material';
+import { Button, Paper } from '@mui/material';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
