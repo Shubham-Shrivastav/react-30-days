@@ -43,7 +43,7 @@ function TodoList() {
         <Paper elevation={3} sx={{ padding: '20px', maxWidth: '400px', margin: '20px auto' }}>
             <h3>To Do List</h3>
             <form onSubmit={handleSubmit}>
-                <Stack direction="row" spacing={2} alignItems="center">
+                <Stack direction="row" spacing={2} alignItems="center" sx={{ marginBottom: '20px' }}>
                     <TextField
                         label="Task"
                         variant="outlined"
