@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Paper, TextField, Button, Stack } from '@mui/material';
 
 function TodoList() {
     const [taskInput, setTaskInput] = useState('');
@@ -39,48 +40,54 @@ function TodoList() {
     };
 
     return (
-        <div>
+        <Paper elevation={3} sx={{ padding: '20px', maxWidth: '400px', margin: '20px auto' }}>
+            <h3>To Do List</h3>
             <form onSubmit={handleSubmit}>
-                <label htmlFor="task">Task: </label>
-                <input
-                    type="text"
-                    name="task"
-                    value={taskInput}
-                    onChange={handleChange}
-                    autoComplete="off"
-                />
-                <button type="submit">{editIndex !== null ? 'Update' : 'Add'}</button>
+                <Stack direction="row" spacing={2} alignItems="center">
+                    <TextField
+                        label="Task"
+                        variant="outlined"
+                        size="small"
+                        value={taskInput}
+                        onChange={handleChange}
+                        autoComplete="off"
+                    />
+                    <Button type="submit" variant="contained" color="primary">
+                        {editIndex !== null ? 'Update' : 'Add'}
+                    </Button>
+                </Stack>
             </form>
 
-            <ul>
+            <Stack spacing={2}>
                 {tasksList.map((task, index) => (
-                    <li key={index}>
+                    <Stack direction="row" spacing={2} alignItems="center" key={index}>
                         {editIndex === index ? (
-                            <>
-                                <input
-                                    type="text"
+                            <Stack direction="row" spacing={3} alignItems="center">
+                                <TextField
                                     value={taskInput}
                                     onChange={handleChange}
+                                    size="small"
+                                    variant="outlined"
                                 />
-                                <button type="button" onClick={handleSubmit}>
+                                <Button variant="contained" color="primary" onClick={handleSubmit}>
                                     Update
-                                </button>
-                            </>
+                                </Button>
+                            </Stack>
                         ) : (
-                            <>
+                            <Stack direction="row" spacing={2} alignItems="center">
                                 <h4>{task}</h4>
-                                <button type="button" onClick={() => handleEdit(index)}>
+                                <Button variant="outlined" size='small' onClick={() => handleEdit(index)}>
                                     Edit
-                                </button>
-                                <button type="button" onClick={() => handleDelete(index)}>
+                                </Button>
+                                <Button variant="contained" size='small' color="error" onClick={() => handleDelete(index)}>
                                     Remove
-                                </button>
-                            </>
+                                </Button>
+                            </Stack>
                         )}
-                    </li>
+                    </Stack>
                 ))}
-            </ul>
-        </div>
+            </Stack>
+        </Paper>
     );
 }
 
