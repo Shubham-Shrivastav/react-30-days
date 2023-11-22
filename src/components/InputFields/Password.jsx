@@ -12,7 +12,7 @@ const Password = ({ onChange }) => {
   };
 
   const validatePassword = () => {
-    const passwordRegex = /^(?=.*[A-Z])(?=.*[!@#$%^&*])(.{8,})$/;
+    const passwordRegex = /^(?=.*[A-Z])(?=.*[!@#$%^&*])(.{8,32})$/;
 
     return !passwordRegex.test(password);
   };
